@@ -1,10 +1,13 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom';
-import './index.css';
-import App from './App';
+import React, { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { App } from "./App";
 
-const rootElement = document.getElementById('root');
+// id="root"の要素を取得
+const rootElement = document.getElementById("root");
+
+// createRoot関数で先ほど取得したrootElementを渡す
 const root = createRoot(rootElement);
+
 
 root.render(
   <StrictMode>
