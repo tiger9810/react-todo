@@ -16,13 +16,6 @@ input {
     margin-bottom: 0.5rem;
 }
 
-.incomplete-area {
-    background-color: #fcf8e3;
-    padding: 8px;
-    border-radius: 8px;
-    margin-bottom: 8px;
-}
-
 button {
     /* simple modern design */
     background-color: #fff;
@@ -33,13 +26,6 @@ button {
     font-size: 1.2rem;
     color:#666;
     margin-left: 0.5rem;
-}
-
-.complete-area {
-    background-color: #d4edda;
-    padding: 8px;
-    border-radius: 8px;
-    margin-bottom: 8px;
 }
 
 .row-list {

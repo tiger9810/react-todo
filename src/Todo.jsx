@@ -1,5 +1,8 @@
 import { useState } from "react";
 import "./components/Todo.css";
+import { InputTodo } from "./components/InputTodo";
+import { IncompleteTodo } from "./components/IncompleteTodo";
+import { CompleteTodo } from "./components/CompleteTodo";
 
 export const Todo = () => {
   const [incompleteTodo, setIncompleteTodo] = useState(["todo1", "todo2"]);
@@ -53,45 +56,25 @@ export const Todo = () => {
 
   return (
     <div className="container">
-      <div className="input-area">
-        <input type="text" placeholder="Todo" value={todoText} onChange={onChangeText}/>
-        <button onClick={onClickAdd}>Add</button>
-      </div>
+      <p>総Todo数：{incompleteTodo.length}</p>
+      <p>完了Todo数：{completeTodo.length}</p>
+      <InputTodo 
+        todoText={todoText}
+        onChangeText={onChangeText}
+        onClickAdd={onClickAdd}
+      />
 
-      <div className="incomplete-area">
-        <p className="title">incomplete</p>
-        <ul>
-          {/* map関数の第二引数にはindexが入る */}
-          {incompleteTodo.map((todo, index) => {
-            return (
-              <li key={todo}>
-              <div className="row-list">
-                <p>{todo}</p>
-                <button onClick={() => onClickDone(index)}>Done</button>
-                <button onClick={() =>onClickDelete(index)}>Delete</button>
-              </div>
-            </li>
-            )
-          })}
+      <IncompleteTodo 
+      incompleteTodo={incompleteTodo}
+      onClickDone={onClickDone} 
+      onClickDelete={onClickDelete} 
+      />
 
-        </ul>
-      </div>
+      <CompleteTodo  
+      completeTodo={completeTodo}
+      onClickBack={onClickBack}
+      />
 
-      <div className="complete-area">
-        <p className="title">complete</p>
-        <ul>
-          {completeTodo.map((todo, index) => {
-            return (
-              <li key={todo}>
-              <div className="row-list">
-                <p>{todo}</p>
-                <button onClick={() => onClickBack(index)}>back</button>
-              </div>
-            </li>
-            )}
-          )}
-        </ul>
-      </div>
     </div>
   );
 };
